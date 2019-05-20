@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(139, 139, 139);
+    text-align: center;
+  }
+
+button {
+    background-color: rgb(226, 226, 226);
+}
+
+button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}

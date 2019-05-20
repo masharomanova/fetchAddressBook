@@ -1,10 +1,10 @@
-// window.onload = function() {
-//   get();
-// };
+window.onload = function() {
+  get();
+};
 
-// window.onload = function() {
-//   getMany();
-// };  
+window.onload = function() {
+  getMany();
+};  
 
 
 const newArr = [];
@@ -72,22 +72,17 @@ function moreInfo(index) {
 
 
 
-// function getMany() {
-//   fetch("https://randomuser.me/api/?results=5")
-//   .then(response => response.json())
-//   .then(data => {
-//   console.log(data);
-//   data.results.map(y => {
-//   let key = x;
-//   let name = y.name.first + " " + y.name.last;
-//   let image = y.picture.thumbnail;
-//   let moreInfo = {
-//   dob: y.dob,
-//   email: y.email
-//   };
-//   users.push(new User(name, image, moreInfo));
-//   createDom(name, image, moreInfo, key);
-//   });
-//   });
-//   console.log(users);
-//   }
+function getMany() {
+  fetch("https://randomuser.me/api/?results=5")
+  .then(response => response.json())
+  .then(data => {
+    data.results.map(y => {
+      let name = y.name.first;
+      let image = y.picture.large;
+  newArr.push(new User(name, image));
+  createUser(name, image);
+  });
+  })
+  .catch( error => console.log("oops, looks like we got an error: ", error))
+  .finally( ()=> console.log("finally, This function always runs...")) // Whether or not there's an error or success, this will happen such as stopping a loading wheel on the front end
+  }
